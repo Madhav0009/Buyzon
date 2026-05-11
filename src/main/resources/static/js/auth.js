@@ -4,6 +4,7 @@ async function registerUser(event) {
   const data = {
     name: document.getElementById("name").value,
     username: document.getElementById("username").value,
+    email: document.getElementById("email").value,
     password: document.getElementById("password").value
   };
 
@@ -46,7 +47,8 @@ async function loginUser(event, isAdminLogin = false) {
   const result = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    document.getElementById("message").innerText = "Invalid credentials";
+    document.getElementById("message").innerText =
+      "Invalid credentials";
     return;
   }
 
@@ -62,19 +64,35 @@ async function loginUser(event, isAdminLogin = false) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const signupForm = document.getElementById("signupForm");
-  const loginForm = document.getElementById("loginForm");
-  const adminLoginForm = document.getElementById("adminLoginForm");
+
+  const signupForm =
+    document.getElementById("signupForm");
+
+  const loginForm =
+    document.getElementById("loginForm");
+
+  const adminLoginForm =
+    document.getElementById("adminLoginForm");
 
   if (signupForm) {
-    signupForm.addEventListener("submit", registerUser);
+    signupForm.addEventListener(
+      "submit",
+      registerUser
+    );
   }
 
   if (loginForm) {
-    loginForm.addEventListener("submit", (e) => loginUser(e, false));
+    loginForm.addEventListener(
+      "submit",
+      (e) => loginUser(e, false)
+    );
   }
 
   if (adminLoginForm) {
-    adminLoginForm.addEventListener("submit", (e) => loginUser(e, true));
+    adminLoginForm.addEventListener(
+      "submit",
+      (e) => loginUser(e, true)
+    );
   }
+
 });

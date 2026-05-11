@@ -6,9 +6,16 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.Buyzon.entity.User;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository
+        extends JpaRepository<User, Long> {
 
     Optional<User> findByUsername(String username);
 
     boolean existsByUsername(String username);
+
+    // ADD THESE
+
+    Optional<User> findByEmail(String email);
+
+    boolean existsByEmail(String email);
 }

@@ -40,15 +40,25 @@ public class SecurityConfig {
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(auth -> auth
-            	    .requestMatchers(
-            	            "/", "/index.html",
-            	            "/signup.html", "/login.html", "/admin-login.html",
-            	            "/customer-home.html", "/view-cart.html",
-            	            "/admin-home.html",
-            	            "/add-product.html", "/all-products-admin.html",
-            	            "/edit-product.html", "/view-product-admin.html",
-            	            "/css/**", "/js/**"
-            	    ).permitAll()
+            		.requestMatchers(
+            		        "/", "/index.html",
+            		        "/signup.html",
+            		        "/login.html",
+            		        "/forgot-password.html",
+            		        "/admin-login.html",
+
+            		        "/customer-home.html",
+            		        "/view-cart.html",
+
+            		        "/admin-home.html",
+            		        "/add-product.html",
+            		        "/all-products-admin.html",
+            		        "/edit-product.html",
+            		        "/view-product-admin.html",
+
+            		        "/css/**",
+            		        "/js/**"
+            		).permitAll()
             	    .requestMatchers("/auth/**", "/hello").permitAll()
             	    .requestMatchers("/customer/cart/**").hasRole("USER")
             	    .requestMatchers("/customer/payment/**").hasRole("USER")

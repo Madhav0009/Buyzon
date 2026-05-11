@@ -8,26 +8,33 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.example.Buyzon.entity.User;
 import com.example.Buyzon.repository.UserRepository;
 
-
-
 @Configuration
 public class AdminSeeder {
 
     @Bean
-    public CommandLineRunner seedAdmin(UserRepository userRepository,
-                                       PasswordEncoder passwordEncoder) {
+    public CommandLineRunner seedAdmin(
+            UserRepository userRepository,
+            PasswordEncoder passwordEncoder) {
+
         return args -> {
+
             String adminUsername = "admin";
 
             if (!userRepository.existsByUsername(adminUsername)) {
+
                 User admin = new User(
                         "Admin",
                         adminUsername,
+                        "admin@buyzon.com",
                         passwordEncoder.encode("admin123"),
                         "ADMIN"
                 );
+
                 userRepository.save(admin);
-                System.out.println("Admin user created: admin / admin123");
+
+                System.out.println(
+                        "Admin user created: admin / admin123"
+                );
             }
         };
     }
