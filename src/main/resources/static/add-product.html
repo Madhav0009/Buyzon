@@ -1,28 +1,160 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Add Product</title>
-  <link rel="stylesheet" href="/css/style.css" />
+
+```
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Buyzon - Add Product</title>
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+```
+
 </head>
+
 <body>
-  <div class="container">
-    <h2>Add Product</h2>
 
-    <form id="addProductForm">
-      <input type="text" id="name" placeholder="Product Name" required />
-      <input type="text" id="description" placeholder="Description" required />
-      <input type="number" id="price" step="0.01" placeholder="Price" required />
-      <input type="number" id="stock" placeholder="Stock" required />
-      <input type="text" id="category" placeholder="Category" required />
-      <input type="text" id="imageUrl" placeholder="Image URL" />
-      <button type="submit">Add Product</button>
-    </form>
+```
+<!-- NAVBAR -->
 
-    <p id="message"></p>
-    <a href="/admin-home.html">Back to Admin Home</a>
-  </div>
+<nav class="navbar">
 
-  <script src="/js/admin-products.js"></script>
+    <div class="logo">
+        Buyzon Admin
+    </div>
+
+    <div class="nav-buttons">
+
+        <button 
+            class="btn"
+            onclick="window.location.href='/admin-home.html'"
+        >
+            Dashboard
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- FORM SECTION -->
+
+<section class="hero">
+
+    <div class="container" style="width:600px; max-width:95%;">
+
+        <h1 class="section-title">
+            Add New Product
+        </h1>
+
+        <p style="margin-bottom:25px;">
+            Upload and manage products for your store
+        </p>
+
+        <form id="addProductForm">
+
+            <input 
+                type="text"
+                id="name"
+                placeholder="Product Name"
+                required
+            />
+
+            <input 
+                type="text"
+                id="description"
+                placeholder="Product Description"
+                required
+            />
+
+            <input 
+                type="number"
+                id="price"
+                step="0.01"
+                placeholder="Product Price"
+                required
+            />
+
+            <input 
+                type="number"
+                id="stock"
+                placeholder="Available Stock"
+                required
+            />
+
+            <input 
+                type="text"
+                id="category"
+                placeholder="Product Category"
+                required
+            />
+
+            <input 
+                type="text"
+                id="imageUrl"
+                placeholder="Product Image URL"
+                oninput="previewImage()"
+            />
+
+            <!-- IMAGE PREVIEW -->
+
+            <img 
+                id="imagePreview"
+                class="product-image-preview"
+                src="https://via.placeholder.com/300"
+                alt="Preview"
+            />
+
+            <button 
+                type="submit"
+                class="btn"
+                style="width:100%; margin-top:25px;"
+            >
+                Add Product
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Buyzon Admin Panel. Product Management System.
+    </p>
+
+</footer>
+
+<!-- SCRIPT -->
+
+<script>
+
+    function previewImage() {
+
+        const imageInput = document.getElementById("imageUrl");
+
+        const preview = document.getElementById("imagePreview");
+
+        preview.src = imageInput.value || "https://via.placeholder.com/300";
+    }
+
+</script>
+
+<script src="/js/admin-products.js"></script>
+```
+
 </body>
+
 </html>

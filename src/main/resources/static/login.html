@@ -1,52 +1,118 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Customer Login</title>
-  <link rel="stylesheet" href="/css/style.css" />
+
+```
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Buyzon - Login</title>
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+```
+
 </head>
 
 <body>
 
-  <div class="container">
+```
+<!-- NAVBAR -->
 
-    <h2>Customer Login</h2>
+<nav class="navbar">
 
-    <form id="loginForm">
+    <div class="logo">
+        Buyzon
+    </div>
 
-      <input type="text"
-             id="username"
-             placeholder="Username"
-             required />
+    <div class="nav-buttons">
 
-      <input type="password"
-             id="password"
-             placeholder="Password"
-             required />
+        <button 
+            class="btn"
+            onclick="window.location.href='/index.html'"
+        >
+            Home
+        </button>
 
-      <button type="submit">
-        Login
-      </button>
+    </div>
 
-      <br><br>
+</nav>
 
-      <a href="/forgot-password.html">
-        Forgot Password?
-      </a>
+<!-- LOGIN SECTION -->
 
-    </form>
+<section class="hero">
 
-    <p id="message"></p>
+    <div class="container">
 
-    <br>
+        <h1 class="section-title">
+            Welcome Back
+        </h1>
 
-    <a href="/index.html">
-      Back
-    </a>
+        <p style="margin-bottom:25px;">
+            Login to continue shopping on Buyzon
+        </p>
 
-  </div>
+        <form id="loginForm">
 
-  <script src="/js/auth.js"></script>
+            <input 
+                type="text"
+                id="username"
+                placeholder="Enter Username"
+                required
+            />
+
+            <input 
+                type="password"
+                id="password"
+                placeholder="Enter Password"
+                required
+            />
+
+            <button type="submit" class="btn" style="width:100%;">
+                Login
+            </button>
+
+        </form>
+
+        <div style="margin-top:25px;">
+
+            <a 
+                href="/forgot-password.html"
+                style="display:block; margin-bottom:18px;"
+            >
+                Forgot Password?
+            </a>
+
+            <a href="/signup.html">
+                Don't have an account? Sign Up
+            </a>
+
+        </div>
+
+        <p id="message"></p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Buyzon. Secure Authentication System.
+    </p>
+
+</footer>
+
+<script src="/js/auth.js"></script>
+```
 
 </body>
+
 </html>

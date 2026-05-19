@@ -1,17 +1,92 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
-  <title>View Product</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>View Product - Buyzon Admin</title>
+
   <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google Font -->
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
 </head>
+
 <body>
-  <div class="container">
-    <h2>Product Details</h2>
-    <div id="productDetails"></div>
-    <a href="/all-products-admin.html">Back to Product List</a>
-  </div>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+```
+<div class="logo">
+  Buyzon Admin
+</div>
+
+<div class="nav-buttons">
+
+  <button
+    class="btn"
+    onclick="window.location.href='/all-products-admin.html'"
+  >
+    All Products
+  </button>
+
+  <button
+    class="btn"
+    onclick="window.location.href='/admin-home.html'"
+  >
+    Dashboard
+  </button>
+
+</div>
+```
+
+  </nav>
+
+  <!-- PRODUCT DETAILS SECTION -->
+
+  <section class="products-section">
+
+```
+<h1 class="section-title">
+  Product Details
+</h1>
+
+<p style="margin-bottom:30px;">
+  Complete product information and inventory details
+</p>
+
+<!-- PRODUCT DETAILS -->
+
+<div id="productDetails"></div>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+```
+<p>
+  © 2026 Buyzon Admin Product Management System.
+</p>
+```
+
+  </footer>
 
   <script src="/js/admin-products.js"></script>
+
 </body>
+
 </html>

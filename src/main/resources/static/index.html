@@ -1,20 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Welcome</title>
-  <link rel="stylesheet" href="/css/style.css" />
-</head>
-<body>
-  <div class="container">
-    <h1>Welcome to Buyzon </h1>
-    <p>Get Everything at one Place </p>
 
-    <div class="actions">
-      <a href="/signup.html">Sign Up</a>
-      <a href="/login.html">Customer Login</a>
-      <a href="/admin-login.html">Admin Login</a>
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Buyzon - Smart Shopping Platform</title>
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+```
+
+</head>
+
+<body>
+
+```
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Buyzon
     </div>
-  </div>
+
+    <div class="nav-buttons">
+
+        <button 
+            class="btn"
+            onclick="window.location.href='/login.html'"
+        >
+            Login
+        </button>
+
+        <button 
+            class="btn shop-btn"
+            onclick="window.location.href='/signup.html'"
+        >
+            Sign Up
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Shop Smarter With Buyzon
+        </h1>
+
+        <p>
+            Discover premium products, secure payments, and seamless shopping experience powered by Java Spring Boot.
+        </p>
+
+        <div style="display:flex; gap:15px; flex-wrap:wrap;">
+
+            <button 
+                class="btn shop-btn"
+                onclick="window.location.href='/signup.html'"
+            >
+                Get Started
+            </button>
+
+            <button 
+                class="btn"
+                onclick="window.location.href='/login.html'"
+            >
+                Explore Store
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features-section">
+
+    <div class="feature-card">
+
+        <h2>
+            ⚡
+        </h2>
+
+        <p>
+            Fast & Responsive Shopping Experience
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <h2>
+            🔒
+        </h2>
+
+        <p>
+            Secure JWT Authentication & Razorpay Integration
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <h2>
+            🛒
+        </h2>
+
+        <p>
+            Modern E-Commerce UI With Real-Time Cart Features
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ABOUT SECTION -->
+
+<section class="products-section">
+
+    <h2 class="section-title">
+        Why Buyzon?
+    </h2>
+
+    <div class="feature-card">
+
+        <p style="font-size:18px; line-height:1.8;">
+
+            Buyzon is a full-stack e-commerce application developed using 
+            Java Spring Boot, JWT Authentication, REST APIs, MySQL, and modern frontend technologies. 
+            It provides secure authentication, product management, shopping cart functionality, 
+            and Razorpay payment integration with a modern responsive UI.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Buyzon. Designed & Developed by Mahadev Kadam.
+    </p>
+
+</footer>
+```
+
 </body>
+
 </html>

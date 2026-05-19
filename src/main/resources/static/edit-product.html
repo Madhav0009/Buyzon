@@ -1,28 +1,169 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
-  <title>Edit Product</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Edit Product - Buyzon Admin</title>
+
   <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google Font -->
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
 </head>
+
 <body>
-  <div class="container">
-    <h2>Edit Product</h2>
 
-    <form id="editProductForm">
-      <input type="text" id="name" placeholder="Product Name" required />
-      <input type="text" id="description" placeholder="Description" required />
-      <input type="number" id="price" step="0.01" placeholder="Price" required />
-      <input type="number" id="stock" placeholder="Stock" required />
-      <input type="text" id="category" placeholder="Category" required />
-      <input type="text" id="imageUrl" placeholder="Image URL" />
-      <button type="submit">Update Product</button>
-    </form>
+  <!-- NAVBAR -->
 
-    <p id="message"></p>
-    <a href="/all-products-admin.html">Back to Product List</a>
+  <nav class="navbar">
+
+```
+<div class="logo">
+  Buyzon Admin
+</div>
+
+<div class="nav-buttons">
+
+  <button
+    class="btn"
+    onclick="window.location.href='/all-products-admin.html'"
+  >
+    All Products
+  </button>
+
+</div>
+```
+
+  </nav>
+
+  <!-- EDIT PRODUCT SECTION -->
+
+  <section class="hero">
+
+```
+<div class="auth-card product-form-card">
+
+  <h1 class="auth-title">
+    Edit Product
+  </h1>
+
+  <p class="auth-subtitle">
+    Update product details and manage inventory
+  </p>
+
+  <form id="editProductForm">
+
+    <input
+      type="text"
+      id="name"
+      placeholder="Product Name"
+      required
+    />
+
+    <input
+      type="text"
+      id="description"
+      placeholder="Product Description"
+      required
+    />
+
+    <input
+      type="number"
+      id="price"
+      step="0.01"
+      placeholder="Product Price"
+      required
+    />
+
+    <input
+      type="number"
+      id="stock"
+      placeholder="Available Stock"
+      required
+    />
+
+    <input
+      type="text"
+      id="category"
+      placeholder="Product Category"
+      required
+    />
+
+    <input
+      type="text"
+      id="imageUrl"
+      placeholder="Product Image URL"
+    />
+
+    <!-- IMAGE PREVIEW -->
+
+    <img
+      id="imagePreview"
+      class="product-image-preview"
+      src="https://via.placeholder.com/300"
+      alt="Preview"
+    />
+
+    <button
+      type="submit"
+      class="btn auth-btn"
+    >
+      Update Product
+    </button>
+
+  </form>
+
+  <p id="message"></p>
+
+  <div class="auth-footer">
+
+    <a href="/all-products-admin.html">
+      ← Back to Products
+    </a>
+
   </div>
 
+</div>
+```
+
+  </section>
+
   <script src="/js/admin-products.js"></script>
+
+  <!-- LIVE IMAGE PREVIEW -->
+
+  <script>
+
+    const imageInput =
+      document.getElementById("imageUrl");
+
+    const imagePreview =
+      document.getElementById("imagePreview");
+
+    imageInput.addEventListener(
+
+      "input",
+
+      () => {
+
+        imagePreview.src =
+          imageInput.value ||
+          "https://via.placeholder.com/300";
+      }
+    );
+
+  </script>
+
 </body>
+
 </html>

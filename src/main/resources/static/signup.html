@@ -1,50 +1,136 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="/css/style.css" />
+
+```
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Buyzon - Sign Up</title>
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+```
+
 </head>
+
 <body>
-  <div class="container">
 
-    <h2>Customer Sign Up</h2>
+```
+<!-- NAVBAR -->
 
-    <form id="signupForm">
+<nav class="navbar">
 
-      <input type="text"
-             id="name"
-             placeholder="Name"
-             required />
+    <div class="logo">
+        Buyzon
+    </div>
 
-      <input type="text"
-             id="username"
-             placeholder="Username"
-             required />
+    <div class="nav-buttons">
 
-      <input type="email"
-             id="email"
-             placeholder="Email"
-             required />
+        <button 
+            class="btn"
+            onclick="window.location.href='/index.html'"
+        >
+            Home
+        </button>
 
-      <input type="password"
-             id="password"
-             placeholder="Password"
-             required />
+        <button 
+            class="btn shop-btn"
+            onclick="window.location.href='/login.html'"
+        >
+            Login
+        </button>
 
-      <button type="submit">
-        Register
-      </button>
+    </div>
 
-    </form>
+</nav>
 
-    <p id="message"></p>
+<!-- SIGNUP SECTION -->
 
-    <a href="/index.html">Back</a>
+<section class="hero">
 
-  </div>
+    <div class="container">
 
-  <script src="/js/auth.js"></script>
+        <h1 class="section-title">
+            Create Account
+        </h1>
+
+        <p style="margin-bottom:25px;">
+            Join Buyzon and start shopping smarter
+        </p>
+
+        <form id="signupForm">
+
+            <input 
+                type="text"
+                id="name"
+                placeholder="Enter Full Name"
+                required
+            />
+
+            <input 
+                type="text"
+                id="username"
+                placeholder="Choose Username"
+                required
+            />
+
+            <input 
+                type="email"
+                id="email"
+                placeholder="Enter Email Address"
+                required
+            />
+
+            <input 
+                type="password"
+                id="password"
+                placeholder="Create Password"
+                required
+            />
+
+            <button 
+                type="submit"
+                class="btn"
+                style="width:100%;"
+            >
+                Create Account
+            </button>
+
+        </form>
+
+        <div style="margin-top:25px;">
+
+            <a href="/login.html">
+                Already have an account? Login
+            </a>
+
+        </div>
+
+        <p id="message"></p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Buyzon. Built using Java Spring Boot & JWT Authentication.
+    </p>
+
+</footer>
+
+<script src="/js/auth.js"></script>
+```
 
 </body>
+
 </html>

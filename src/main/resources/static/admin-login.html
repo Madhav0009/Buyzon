@@ -1,22 +1,108 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
-  <title>Admin Login</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Buyzon Admin Login</title>
+
   <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Google Font -->
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
 </head>
+
 <body>
-  <div class="container">
-    <h2>Admin Login</h2>
-    <form id="adminLoginForm">
-      <input type="text" id="username" placeholder="Admin Username" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
-    <p id="message"></p>
-    <a href="/index.html">Back</a>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+```
+<div class="logo">
+  Buyzon Admin
+</div>
+
+<div class="nav-buttons">
+
+  <button
+    class="btn"
+    onclick="window.location.href='/index.html'"
+  >
+    Home
+  </button>
+
+</div>
+```
+
+  </nav>
+
+  <!-- LOGIN SECTION -->
+
+  <section class="hero">
+
+```
+<div class="auth-card">
+
+  <h1 class="auth-title">
+    Admin Portal
+  </h1>
+
+  <p class="auth-subtitle">
+    Secure access to the Buyzon management dashboard
+  </p>
+
+  <form id="adminLoginForm">
+
+    <input
+      type="text"
+      id="username"
+      placeholder="Admin Username"
+      required
+    />
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      required
+    />
+
+    <button
+      type="submit"
+      class="btn auth-btn"
+    >
+      Login
+    </button>
+
+  </form>
+
+  <p id="message"></p>
+
+  <div class="auth-footer">
+
+    <a href="/index.html">
+      ← Back to Home
+    </a>
+
   </div>
 
+</div>
+```
+
+  </section>
+
   <script src="/js/auth.js"></script>
+
 </body>
+
 </html>

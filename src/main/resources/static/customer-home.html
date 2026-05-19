@@ -1,27 +1,117 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Customer Home</title>
-  <link rel="stylesheet" href="/css/style.css" />
+
+```
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Buyzon - Customer Home</title>
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+```
+
 </head>
+
 <body>
-  <div class="container wide-container">
-    <h1>Customer Home</h1>
-    <p id="welcomeText"></p>
 
-    <div class="actions">
-      <button onclick="startShopping()">Start Shopping</button>
-      <button onclick="goToCart()">View Cart</button>
-      <button onclick="logout()">Logout</button>
+```
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Buyzon
     </div>
 
-    <div id="shoppingSection" style="display: none;">
-      <h2 class="section-title">Available Products</h2>
-      <div id="productList"></div>
-    </div>
-  </div>
+    <div class="nav-buttons">
 
-  <script src="/js/customer.js"></script>
+        <button class="btn" onclick="goToCart()">
+            🛒 Cart
+        </button>
+
+        <button class="btn logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Discover Amazing Products
+        </h1>
+
+        <p id="welcomeText">
+            Welcome Back
+        </p>
+
+        <button class="btn shop-btn" onclick="startShopping()">
+            Start Shopping
+        </button>
+
+    </div>
+
+</section>
+
+<!-- FEATURE STATS -->
+
+<section class="features-section">
+
+    <div class="feature-card">
+        <h2>1000+</h2>
+        <p>Products Available</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>Fast</h2>
+        <p>Secure Checkout</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>24/7</h2>
+        <p>Customer Support</p>
+    </div>
+
+</section>
+
+<!-- PRODUCTS SECTION -->
+
+<section id="shoppingSection" class="products-section" style="display:none;">
+
+    <h2 class="section-title">
+        Available Products
+    </h2>
+
+    <div id="productList" class="products-grid"></div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Buyzon. Built with Java Spring Boot & React.
+    </p>
+
+</footer>
+
+<script src="/js/customer.js"></script>
+```
+
 </body>
+
 </html>
