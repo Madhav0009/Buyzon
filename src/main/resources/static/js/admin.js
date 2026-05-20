@@ -8,11 +8,11 @@ const username = localStorage.getItem("username");
 
 if (!token || role !== "ADMIN") {
 
-```
+
 window.location.href = "/admin-login.html";
 
 return false;
-```
+
 
 }
 
@@ -21,10 +21,10 @@ document.getElementById("welcomeText");
 
 if (welcomeText) {
 
-```
+
 welcomeText.innerText =
   `Welcome back, ${username}`;
-```
+
 
 }
 
@@ -45,7 +45,6 @@ apiResult.innerHTML = `     <p>Loading admin data...</p>
 
 try {
 
-```
 const response = await fetch("/admin/home", {
 
   headers: {
@@ -78,11 +77,11 @@ apiResult.innerHTML = `
   </p>
 
 `;
-```
+
 
 } catch (error) {
 
-```
+
 console.error(error);
 
 apiResult.innerHTML = `
@@ -95,7 +94,6 @@ apiResult.innerHTML = `
   </p>
 
 `;
-```
 
 }
 }
@@ -121,9 +119,9 @@ document.addEventListener(
 
 () => {
 
-```
+
 ensureAdmin();
-```
+
 
 }
 );

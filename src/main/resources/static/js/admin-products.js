@@ -10,11 +10,11 @@ const role = localStorage.getItem("role");
 
 if (!token || role !== "ADMIN") {
 
-```
+
 window.location.replace("/admin-login.html");
 
 return false;
-```
+
 
 }
 
@@ -36,7 +36,7 @@ event.preventDefault();
 
 const data = {
 
-```
+
 name: document.getElementById("name").value,
 
 description: document.getElementById("description").value,
@@ -48,13 +48,13 @@ stock: document.getElementById("stock").value,
 category: document.getElementById("category").value,
 
 imageUrl: document.getElementById("imageUrl").value
-```
+
 
 };
 
 try {
 
-```
+
 const response = await fetch("/admin/products", {
 
   method: "POST",
@@ -85,16 +85,16 @@ setTimeout(() => {
   window.location.href = "/all-products-admin.html";
 
 }, 1200);
-```
+
 
 } catch (error) {
 
-```
+
 console.error(error);
 
 document.getElementById("message").innerText =
   "Something went wrong";
-```
+
 
 }
 }
@@ -105,21 +105,20 @@ async function loadAllProducts() {
 
 const response = await fetch("/admin/products", {
 
-```
+
 headers: {
   "Authorization": "Bearer " + getToken()
 }
-```
+
 
 });
 
 if (response.status === 401 || response.status === 403) {
 
-```
 window.location.replace("/admin-login.html");
 
 return;
-```
+
 
 }
 
@@ -129,7 +128,7 @@ const productList = document.getElementById("productList");
 
 if (!products.length) {
 
-```
+
 productList.innerHTML = `
   <div class="feature-card">
     <h2>No Products Found</h2>
@@ -137,21 +136,18 @@ productList.innerHTML = `
 `;
 
 return;
-```
 
 }
 
 let html = `
 
-```
 <div class="admin-products-grid">
-```
+
 
 `;
 
 products.forEach(product => {
 
-```
 html += `
 
   <div class="admin-product-card">
@@ -214,7 +210,6 @@ html += `
   </div>
 
 `;
-```
 
 });
 
@@ -233,21 +228,21 @@ if (!id) return;
 
 const response = await fetch(`/admin/products/${id}`, {
 
-```
+
 headers: {
   "Authorization": "Bearer " + getToken()
 }
-```
+
 
 });
 
 if (response.status === 401 || response.status === 403) {
 
-```
+
 window.location.replace("/admin-login.html");
 
 return;
-```
+
 
 }
 
@@ -257,7 +252,7 @@ const detailsDiv = document.getElementById("productDetails");
 
 detailsDiv.innerHTML = `
 
-```
+
 <div class="admin-product-card">
 
   <img
@@ -289,7 +284,6 @@ detailsDiv.innerHTML = `
   </div>
 
 </div>
-```
 
 `;
 }
@@ -304,21 +298,18 @@ if (!id) return;
 
 const response = await fetch(`/admin/products/${id}`, {
 
-```
+
 headers: {
   "Authorization": "Bearer " + getToken()
 }
-```
 
 });
 
 if (response.status === 401 || response.status === 403) {
 
-```
 window.location.replace("/admin-login.html");
 
 return;
-```
 
 }
 
@@ -352,7 +343,6 @@ const id = getProductIdFromUrl();
 
 const data = {
 
-```
 name: document.getElementById("name").value,
 
 description: document.getElementById("description").value,
@@ -364,13 +354,12 @@ stock: document.getElementById("stock").value,
 category: document.getElementById("category").value,
 
 imageUrl: document.getElementById("imageUrl").value
-```
+
 
 };
 
 const response = await fetch(`/admin/products/${id}`, {
 
-```
 method: "PUT",
 
 headers: {
@@ -381,18 +370,15 @@ headers: {
 },
 
 body: JSON.stringify(data)
-```
 
 });
 
 if (!response.ok) {
 
-```
 document.getElementById("message").innerText =
   "Failed to update product";
 
 return;
-```
 
 }
 
@@ -401,9 +387,7 @@ document.getElementById("message").innerText =
 
 setTimeout(() => {
 
-```
 window.location.href = "/all-products-admin.html";
-```
 
 }, 1200);
 }
@@ -420,23 +404,20 @@ if (!confirmed) return;
 
 const response = await fetch(`/admin/products/${id}`, {
 
-```
 method: "DELETE",
 
 headers: {
   "Authorization": "Bearer " + getToken()
 }
-```
+
 
 });
 
 if (!response.ok) {
 
-```
 alert("Failed to delete product");
 
 return;
-```
 
 }
 
@@ -465,41 +446,34 @@ document.getElementById("productDetails");
 
 if (addProductForm) {
 
-```
 addProductForm.addEventListener(
   "submit",
   addProduct
 );
-```
 
 }
 
 if (editProductForm) {
 
-```
 prefillEditForm();
 
 editProductForm.addEventListener(
   "submit",
   updateProduct
 );
-```
 
 }
 
 if (productList) {
 
-```
+
 loadAllProducts();
-```
 
 }
 
 if (productDetails) {
 
-```
 loadProductDetails();
-```
 
 }
 });

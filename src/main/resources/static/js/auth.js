@@ -1,283 +1,159 @@
 /* REGISTER USER */
 
 async function registerUser(event) {
+  event.preventDefault();
 
-event.preventDefault();
+  const message = document.getElementById("message");
+  const button = event.target.querySelector("button");
 
-const message =
-document.getElementById("message");
+  button.innerText = "Creating Account...";
+  button.disabled = true;
 
-const button =
-event.target.querySelector("button");
+  const data = {
+    name: document.getElementById("name").value,
+    username: document.getElementById("username").value,
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value
+  };
 
-button.innerText = "Creating Account...";
+  try {
+    const response = await fetch("http://localhost:8081/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
 
-button.disabled = true;
+    const result = await response.json().catch(() => ({}));
 
-const data = {
+    if (!response.ok) {
+      message.innerHTML = `
+        <span style="color:#dc2626;font-weight:600;">
+          ${result.message || "Registration failed"}
+        </span>
+      `;
 
-```
-name: document.getElementById("name").value,
+      button.innerText = "Create Account";
+      button.disabled = false;
+      return;
+    }
 
-username: document.getElementById("username").value,
+    message.innerHTML = `
+      <span style="color:#16a34a;font-weight:600;">
+        Account created successfully
+      </span>
+    `;
 
-email: document.getElementById("email").value,
+    setTimeout(() => {
+      window.location.href = "/login.html";
+    }, 1200);
 
-password: document.getElementById("password").value
-```
+  } catch (error) {
+    console.error(error);
 
-};
+    message.innerHTML = `
+      <span style="color:#dc2626;font-weight:600;">
+        Something went wrong
+      </span>
+    `;
 
-try {
-
-```
-const response = await fetch("/auth/register", {
-
-  method: "POST",
-
-  headers: {
-    "Content-Type": "application/json"
-  },
-
-  body: JSON.stringify(data)
-});
-
-const result =
-  await response.json().catch(() => ({}));
-
-if (!response.ok) {
-
-  message.innerHTML = `
-
-    <span style="
-      color:#dc2626;
-      font-weight:600;
-    ">
-      ${result.message || "Registration failed"}
-    </span>
-
-  `;
-
-  button.innerText = "Create Account";
-
-  button.disabled = false;
-
-  return;
+    button.innerText = "Create Account";
+    button.disabled = false;
+  }
 }
 
-message.innerHTML = `
-
-  <span style="
-    color:#16a34a;
-    font-weight:600;
-  ">
-    Account created successfully
-  </span>
-
-`;
-
-setTimeout(() => {
-
-  window.location.href = "/login.html";
-
-}, 1200);
-```
-
-} catch (error) {
-
-```
-console.error(error);
-
-message.innerHTML = `
-
-  <span style="
-    color:#dc2626;
-    font-weight:600;
-  ">
-    Something went wrong
-  </span>
-
-`;
-
-button.innerText = "Create Account";
-
-button.disabled = false;
-```
-
-}
-}
 
 /* LOGIN USER */
 
 async function loginUser(event, isAdminLogin = false) {
+  event.preventDefault();
 
-event.preventDefault();
+  const message = document.getElementById("message");
+  const button = event.target.querySelector("button");
 
-const message =
-document.getElementById("message");
+  button.innerText = "Logging In...";
+  button.disabled = true;
 
-const button =
-event.target.querySelector("button");
+  const data = {
+    username: document.getElementById("username").value,
+    password: document.getElementById("password").value
+  };
 
-button.innerText = "Logging In...";
+  try {
+    const response = await fetch("http://localhost:8081/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
 
-button.disabled = true;
+    const result = await response.json().catch(() => ({}));
 
-const data = {
+    if (!response.ok) {
+      message.innerHTML = `
+        <span style="color:#dc2626;font-weight:600;">
+          Invalid username or password
+        </span>
+      `;
 
-```
-username: document.getElementById("username").value,
+      button.innerText = "Login";
+      button.disabled = false;
+      return;
+    }
 
-password: document.getElementById("password").value
-```
+    localStorage.setItem("token", result.token);
+    localStorage.setItem("username", result.username);
+    localStorage.setItem("role", result.role);
 
-};
+    message.innerHTML = `
+      <span style="color:#16a34a;font-weight:600;">
+        Login successful
+      </span>
+    `;
 
-try {
+    setTimeout(() => {
+      if (result.role === "ADMIN") {
+        window.location.href = "/admin-home.html";
+      } else {
+        window.location.href = "/customer-home.html";
+      }
+    }, 1000);
 
-```
-const response = await fetch("/auth/login", {
+  } catch (error) {
+    console.error(error);
 
-  method: "POST",
+    message.innerHTML = `
+      <span style="color:#dc2626;font-weight:600;">
+        Something went wrong
+      </span>
+    `;
 
-  headers: {
-    "Content-Type": "application/json"
-  },
-
-  body: JSON.stringify(data)
-});
-
-const result =
-  await response.json().catch(() => ({}));
-
-if (!response.ok) {
-
-  message.innerHTML = `
-
-    <span style="
-      color:#dc2626;
-      font-weight:600;
-    ">
-      Invalid username or password
-    </span>
-
-  `;
-
-  button.innerText = "Login";
-
-  button.disabled = false;
-
-  return;
-}
-
-localStorage.setItem(
-  "token",
-  result.token
-);
-
-localStorage.setItem(
-  "username",
-  result.username
-);
-
-localStorage.setItem(
-  "role",
-  result.role
-);
-
-message.innerHTML = `
-
-  <span style="
-    color:#16a34a;
-    font-weight:600;
-  ">
-    Login successful
-  </span>
-
-`;
-
-setTimeout(() => {
-
-  if (result.role === "ADMIN") {
-
-    window.location.href =
-      "/admin-home.html";
-
-  } else {
-
-    window.location.href =
-      "/customer-home.html";
+    button.innerText = "Login";
+    button.disabled = false;
   }
-
-}, 1000);
-```
-
-} catch (error) {
-
-```
-console.error(error);
-
-message.innerHTML = `
-
-  <span style="
-    color:#dc2626;
-    font-weight:600;
-  ">
-    Something went wrong
-  </span>
-
-`;
-
-button.innerText = "Login";
-
-button.disabled = false;
-```
-
 }
-}
+
 
 /* PAGE LOAD */
 
-document.addEventListener(
+document.addEventListener("DOMContentLoaded", () => {
 
-"DOMContentLoaded",
+  const signupForm = document.getElementById("signupForm");
+  const loginForm = document.getElementById("loginForm");
+  const adminLoginForm = document.getElementById("adminLoginForm");
 
-() => {
+  if (signupForm) {
+    signupForm.addEventListener("submit", registerUser);
+  }
 
-```
-const signupForm =
-  document.getElementById("signupForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => loginUser(e, false));
+  }
 
-const loginForm =
-  document.getElementById("loginForm");
+  if (adminLoginForm) {
+    adminLoginForm.addEventListener("submit", (e) => loginUser(e, true));
+  }
 
-const adminLoginForm =
-  document.getElementById("adminLoginForm");
-
-if (signupForm) {
-
-  signupForm.addEventListener(
-    "submit",
-    registerUser
-  );
-}
-
-if (loginForm) {
-
-  loginForm.addEventListener(
-    "submit",
-    (e) => loginUser(e, false)
-  );
-}
-
-if (adminLoginForm) {
-
-  adminLoginForm.addEventListener(
-    "submit",
-    (e) => loginUser(e, true)
-  );
-}
-```
-
-}
-);
+});

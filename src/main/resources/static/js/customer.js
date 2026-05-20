@@ -1,6 +1,5 @@
 function ensureCustomer() {
 
-```
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 const username = localStorage.getItem("username");
@@ -17,7 +16,6 @@ if (welcome) {
 }
 
 return true;
-```
 
 }
 
@@ -41,7 +39,6 @@ window.location.href = "/customer-home.html";
 
 function showToast(message, success = true) {
 
-```
 const toast = document.createElement("div");
 
 toast.innerText = message;
@@ -62,7 +59,6 @@ document.body.appendChild(toast);
 setTimeout(() => {
     toast.remove();
 }, 2500);
-```
 
 }
 
@@ -70,7 +66,6 @@ setTimeout(() => {
 
 async function loadProducts() {
 
-```
 const response = await fetch("/products", {
     headers: {
         "Authorization": "Bearer " + getToken()
@@ -151,7 +146,6 @@ products.forEach(product => {
 });
 
 productList.innerHTML = html;
-```
 
 }
 
@@ -159,7 +153,6 @@ productList.innerHTML = html;
 
 async function addToCart(productId) {
 
-```
 const response = await fetch("/customer/cart", {
 
     method: "POST",
@@ -188,7 +181,6 @@ if (!response.ok) {
 }
 
 showToast(result.message || "Product added to cart");
-```
 
 }
 
@@ -196,7 +188,6 @@ showToast(result.message || "Product added to cart");
 
 async function loadCart() {
 
-```
 const response = await fetch("/customer/cart", {
 
     headers: {
@@ -306,7 +297,6 @@ html += `</table>`;
 cartList.innerHTML = html;
 
 cartTotal.innerText = `Total: ₹${cart.totalAmount}`;
-```
 
 }
 
@@ -314,7 +304,6 @@ cartTotal.innerText = `Total: ₹${cart.totalAmount}`;
 
 async function updateCartItem(cartItemId) {
 
-```
 const quantity = document.getElementById(`qty-${cartItemId}`).value;
 
 const response = await fetch(`/customer/cart/${cartItemId}`, {
@@ -341,7 +330,6 @@ if (!response.ok) {
 showToast(result.message || "Cart updated");
 
 loadCart();
-```
 
 }
 
@@ -349,7 +337,6 @@ loadCart();
 
 async function removeCartItem(cartItemId) {
 
-```
 const response = await fetch(`/customer/cart/${cartItemId}`, {
 
     method: "DELETE",
@@ -369,7 +356,6 @@ if (!response.ok) {
 showToast(result.message || "Item removed");
 
 loadCart();
-```
 
 }
 
@@ -377,7 +363,6 @@ loadCart();
 
 async function checkout() {
 
-```
 if (typeof Razorpay === "undefined") {
     showToast("Razorpay SDK not loaded", false);
     return;
@@ -471,7 +456,6 @@ rzp.on("payment.failed", function () {
 });
 
 rzp.open();
-```
 
 }
 
@@ -479,13 +463,12 @@ rzp.open();
 
 function logout() {
 
-```
+
 localStorage.removeItem("token");
 localStorage.removeItem("username");
 localStorage.removeItem("role");
 
 window.location.replace("/index.html");
-```
 
 }
 
@@ -493,12 +476,10 @@ window.location.replace("/index.html");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-```
 if (!ensureCustomer()) return;
 
 if (document.getElementById("cartList")) {
     loadCart();
 }
-```
 
 });
